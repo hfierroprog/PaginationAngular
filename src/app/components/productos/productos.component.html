@@ -1,0 +1,50 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Inventario</a>
+    </li>
+    <li class="breadcrumb-item active">Productos</li>
+</ol>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-box"></i> Productos
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            Cantidad de elementos:
+            <select (change)="selectChange($event)">
+              <option [value]="5">5</option>
+              <option [value]="10">10</option>
+              <option [value]="15">15</option>
+              <option [value]="20">20</option>
+            </select>
+            <hr>
+            <table class="display table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">nombre</th>
+                        <th scope="col">precio</th>
+                        <th scope="col">stock</th>
+                        <th scope="col">categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let producto of productos">
+                        <td>{{producto.id}}</td>
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>{{producto.stock}}</td>
+                        <td>{{producto.categoria.nombre}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="row float-right">
+            <pagination [totalItems]="totalElementos" [itemsPerPage]="elementosPorPagina" (pageChanged)="cambiarPagina($event)"></pagination>
+        </div>
+    </div>
+</div>
