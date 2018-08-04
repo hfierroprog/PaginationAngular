@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductoService {
 
-  url = 'http://localhost:8081/api/getProductos';
+  url = 'http://localhost:8081/api';
 
   constructor(private http: HttpClient) { }
 
@@ -14,7 +14,19 @@ export class ProductoService {
     return this.http.get(this.url);
   }
 
-  getProductosPage(page: number, size: number) {
-    return this.http.get(this.url + '?page=' + page + '&size=' + size);
+  getProductosPage(page: number, size: number, sort?: string, direccion?: string) {
+    if (sort === undefined) {
+      sort = '';
+    }
+
+    if (direccion === undefined) {
+      direccion = '';
+    }
+
+    return this.http.get(this.url + '/getProductos' + '?page=' + page + '&size=' + size + '&sort=' + sort + ',' + direccion);
+  }
+
+  getProductosCount() {
+    return this.http.get(this.url + '/getCantidadProductos');
   }
 }

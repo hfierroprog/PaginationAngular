@@ -15,11 +15,17 @@ import { ProductosComponent } from './components/productos/productos.component';
 
 // Service
 import { ProductoService } from './services/producto.service';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { MantenedorComponent } from './components/mantenedor/mantenedor.component';
 
 const routes: Routes = [
   {
     path: 'productos',
     component: ProductosComponent
+  },
+  {
+    path: 'inicio',
+    component: InicioComponent
   }
 ];
 
@@ -29,7 +35,9 @@ const routes: Routes = [
     HeaderComponent,
     WrapperComponent,
     ContenidoComponent,
-    ProductosComponent
+    ProductosComponent,
+    InicioComponent,
+    MantenedorComponent
   ],
   imports: [
     BrowserModule,

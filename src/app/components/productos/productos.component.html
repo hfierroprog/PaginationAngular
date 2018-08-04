@@ -21,11 +21,21 @@
             <table class="display table table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">nombre</th>
-                        <th scope="col">precio</th>
-                        <th scope="col">stock</th>
-                        <th scope="col">categoria</th>
+                        <th scope="col" (click)="sort('id')">
+                          Id <i *ngIf="campoActual === 'id' && orden != ''" [ngClass]="orden === 'asc' ? 'fa fa-arrow-up' : 'fa fa-arrow-down'"></i>
+                        </th>
+                        <th scope="col" (click)="sort('nombre')">
+                          Nombre <i *ngIf="campoActual === 'nombre' && orden != ''" [ngClass]="orden === 'asc' ? 'fa fa-arrow-up' : 'fa fa-arrow-down'"></i>
+                        </th>
+                        <th scope="col" (click)="sort('precio')">
+                          Precio <i *ngIf="campoActual === 'precio' && orden != ''" [ngClass]="orden === 'asc' ? 'fa fa-arrow-up' : 'fa fa-arrow-down'"></i>
+                        </th>
+                        <th scope="col" (click)="sort('stock')">
+                          Stock <i *ngIf="campoActual === 'stock' && orden != ''" [ngClass]="orden === 'asc' ? 'fa fa-arrow-up' : 'fa fa-arrow-down'"></i>
+                        </th>
+                        <th scope="col" (click)="sort('categoria.nombre')">
+                          Categoria <i *ngIf="campoActual === 'categoria.nombre' && orden != ''" [ngClass]="orden === 'asc' ? 'fa fa-arrow-up' : 'fa fa-arrow-down'"></i>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
